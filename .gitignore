@@ -165,7 +165,5 @@ composer.phar
 
 .gitignore
 .idea/
-back/
-front/
 sample.iml
 /docker/pgsql/data/
