@@ -10,7 +10,7 @@ services:
       - POSTGRES_PASSWORD=$DB_BACK_PASSWORD
       - POSTGRES_USER=$DB_BACK_USER
       - POSTGRES_DB=$DB_BACK_NAME
-      - .\\pgsql\\data:/var/lib/postgresql/data
+      - ./pgsql/data:/var/lib/postgresql/data
     ports:
       - 5431:5432
   back-php:
@@ -19,8 +19,8 @@ services:
       context: ./apache
     env_file:
       - ./.env
-    environment:
-      - .\\back:/var/www/html/clin-anett
+    volumes:
+      - "./../back:/var/www/html/back"
       # https://stackoverflow.com/a/37898591
       # ignore sub folder
       - /var/www/html/back/vendor
