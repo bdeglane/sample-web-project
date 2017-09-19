@@ -29,3 +29,13 @@ services:
       - 80:80
     links:
       - back-pgsql
+  back-front:
+    build: .
+    build:
+      context: ./node
+    env_file:
+      - ./.env
+    volumes:
+      - "./../front:/app"
+    links:
+      - back-php
