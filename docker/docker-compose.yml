@@ -20,22 +20,25 @@ services:
     env_file:
       - ./.env
     volumes:
-      - "./../back:/var/www/html/back"
+      - ./../back:/var/www/html/back
       # https://stackoverflow.com/a/37898591
       # ignore sub folder
       - /var/www/html/back/vendor
       - /var/www/html/back/var
-    ports :
+    ports:
       - 80:80
     links:
       - back-pgsql
   back-front:
+    command: npm start
     build: .
     build:
       context: ./node
-    env_file:
-      - ./.env
+    environment:
+      - NODE_ENV=development
     volumes:
-      - "./../front:/app"
+      - ./../front:/src
+    ports:
+      - 3000:3000
     links:
       - back-php
