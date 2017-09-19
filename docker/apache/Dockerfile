@@ -29,5 +29,5 @@ RUN a2dissite 000-default
 RUN echo 'alias ll="ls -al"' >> ~/.bashrc
 RUN echo 'alias vh="cat /etc/apache2/sites-available/001-back.conf"' >> ~/.bashrc
 RUN echo 'alias r="php /var/www/html/back/bin/console debug:router"' >> ~/.bashrc
-RUN echo 'alias P="php /var/www/html/back/bin/console"' >> ~/.bashrc
+RUN echo 'alias p="php /var/www/html/back/bin/console"' >> ~/.bashrc
 
