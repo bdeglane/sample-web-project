@@ -13,6 +13,17 @@ services:
       - ./pgsql/data:/var/lib/postgresql/data
     ports:
       - 5431:5432
+  back-front:
+      command: npm start
+      build: .
+      build:
+        context: ./node
+      environment:
+        - NODE_ENV=development
+      volumes:
+        - ./../front:/src
+      ports:
+        - 3000:3000
   back-php:
     build: .
     build:
@@ -29,16 +40,4 @@ services:
       - 80:80
     links:
       - back-pgsql
-  back-front:
-    command: npm start
-    build: .
-    build:
-      context: ./node
-    environment:
-      - NODE_ENV=development
-    volumes:
-      - ./../front:/src
-    ports:
-      - 3000:3000
-    links:
-      - back-php
+      - back-front

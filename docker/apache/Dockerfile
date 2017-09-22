@@ -18,9 +18,11 @@ RUN docker-php-ext-enable xdebug
 
 # build apache
 COPY ./vhost/001-back.conf /etc/apache2/sites-available/001-back.conf
+COPY ./vhost/002-front.conf /etc/apache2/sites-available/002-front.conf
 
 RUN a2enmod headers
 RUN a2ensite 001-back
+RUN a2ensite 002-front
 RUN a2enmod rewrite
 RUN a2enmod proxy_http
 RUN a2dissite 000-default
