@@ -8,6 +8,12 @@
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries
+.idea/
+sample.iml
+/docker/pgsql/data/
+vendor/
+var/
+node_modules/
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
@@ -162,8 +168,3 @@ composer.phar
 # Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
 # You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
 # composer.lock
-
-.gitignore
-.idea/
-sample.iml
-/docker/pgsql/data/
