@@ -1,6 +1,13 @@
 services:
+    # controller layer
     controller_base_controller:
         class: BlogBundle\Controller\BaseController
         arguments:
             - '@api_serializer'
             - '@api_view'
+
+    # service layer
+    service_post:
+        class: BlogBundle\Services\PostService
+        arguments:
+            - '@doctrine.orm.entity_manager'

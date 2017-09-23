@@ -6,8 +6,12 @@ use BlogBundle\Entity\Post;
 
 class DefaultController extends BaseController
 {
+
     public function indexAction()
     {
+
+        $postService = $this->container->get('service_post');
+        dump($postService);
 
         $post = new Post();
         $post->setTitle('test');
