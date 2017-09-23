@@ -2,12 +2,22 @@
 
 namespace BlogBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use BlogBundle\Entity\Post;
 
-class DefaultController extends Controller
+class DefaultController extends BaseController
 {
     public function indexAction()
     {
-        return $this->render('BlogBundle:Default:index.html.twig');
+
+        $post = new Post();
+        $post->setTitle('test');
+        $post->setArticle('test');
+        $post->setCreatedAt(new \DateTime());
+        $post->setUpdatedAt(new \DateTime());
+
+        $json = $this->jsonSerialize($post);
+        $object = $this->jsonDeserialize($json, Post::class);
+
+        return $this->render('BlogBundle:Default:index.html.twig', ['json' => $json, 'object' => $object]);
     }
 }
