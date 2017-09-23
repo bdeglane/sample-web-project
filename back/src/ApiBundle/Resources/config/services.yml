@@ -1,0 +1,13 @@
+services:
+#    api.example:
+#        class: ApiBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    api_serializer:
+        class: ApiBundle\Services\SerializerService
+
+    api_view:
+        class: ApiBundle\Services\ViewService
+        arguments: ['@api_http_code']
+
+    api_http_code:
+        class: ApiBundle\Services\HttpCodeService
